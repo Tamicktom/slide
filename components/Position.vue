@@ -33,7 +33,7 @@ function handleLeftPointerDown(pointerEvent: PointerEvent) {
   const isCtrl = pointerEvent.ctrlKey;
   const isShift = pointerEvent.shiftKey;
   const isAlt = pointerEvent.altKey;
-  const irRight = pointerEvent.button === 2;
+  const irLeft = pointerEvent.button === 0;
 
   //if isCtrl, make it green
   if (isCtrl) {
@@ -59,13 +59,11 @@ function handleLeftPointerDown(pointerEvent: PointerEvent) {
     return;
   }
 
-  //if right click, reset
-  if (irRight) {
-    success.value = false;
-    failure.value = false;
-    locked.value = false;
-    return;
-  }
+  //if isLeft, reset
+  success.value = false;
+  failure.value = false;
+  locked.value = false;
+  return;
 }
 
 </script>

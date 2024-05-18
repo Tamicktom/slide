@@ -42,20 +42,17 @@ class="w-full absolute bottom-10 right-10 max-w-[128px] overflow-hidden rounded-
 />
 
 ---
-transition: fade-out
 src: ./pages/conteudo.md
 hide: false
 ---
 
 ---
-transition: fade-out
 src: ./pages/introducao.md
 hide: false
 ---
 
 ---
-transition: fade-out
-src: ./pages/casamento/forca-bruta/forca-bruta.md
+src: ./pages/casamento/index.md
 hide: false
 ---
 
