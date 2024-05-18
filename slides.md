@@ -57,6 +57,11 @@ hide: false
 ---
 
 ---
+src: ./pages/compressao/index.md
+hide: false
+---
+
+---
 layout: image-right
 image: https://cover.sli.dev
 ---
