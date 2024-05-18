@@ -62,6 +62,11 @@ hide: false
 ---
 
 ---
+src: ./pages/analise/index.md
+hide: false
+---
+
+---
 layout: image-right
 image: https://cover.sli.dev
 ---
