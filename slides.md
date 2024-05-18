@@ -1,16 +1,13 @@
 ---
 # try also 'default' to start simple
-theme: seriph
+theme: apple-basic
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: /images/background.webp
 # some information about your slides, markdown enabled
-title: Welcome to Slidev
+title: Processamento de cadeias
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+  ## Casamento, Compressão e análise
 # apply any unocss classes to the current slide
 class: text-center
 # https://sli.dev/custom/highlighters.html
@@ -22,19 +19,33 @@ drawings:
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/guide/syntax#mdc-syntax
 mdc: true
+# layout: intro-image
+# image: /images/background.webp
 ---
 
-<div class="bg-black bg-opacity-50 rounded-lg backdrop-blur-4 py-4">
-  <h1>Processamento de cadeias</h1>
+# Processamento de cadeias
 
-  <span>Casamento, Compressão e análise</span>
+Casamento, Compressão e análise
 
-  <Cadeia cadeia="a aranha arranha a rainha" />
+<div class="absolute bottom-10">
+  <span class="font-700">
+    Henrique Ângelo V. Fonseca, 2024
+  </span>
 </div>
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+<Socials />
+
+<img 
+src="/images/logo-unesp.jpg" 
+alt="" 
+class="w-full absolute bottom-10 right-10 max-w-[128px] overflow-hidden rounded-lg bg-white p-2"
+/>
+
+---
+transition: fade-out
+src: ./pages/conteudo.md
+hide: false
+---
 
 ---
 transition: fade-out
@@ -42,97 +53,11 @@ src: ./pages/introducao.md
 hide: false
 ---
 
-
-<img border="rounded" class="w-full h-full" src="/images/força-bruta-1.svg" alt="">
-
 ---
 transition: fade-out
+src: ./pages/casamento/forca-bruta/forca-bruta.md
+hide: false
 ---
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
-level: 2
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-## Keyboard Shortcuts
-
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
-| banana com melancia
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc v-click minDepth="1" maxDepth="2"></Toc>
 
 ---
 layout: image-right
@@ -389,7 +314,7 @@ Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), t
 </div>
 ```
 
-<div class="w-60 relative">
+<div class="relative w-60">
   <div class="relative w-40 h-40">
     <img
       v-motion

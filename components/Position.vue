@@ -30,14 +30,12 @@ const failure = ref(props.failure);
 const locked = ref(props.locked);
 
 function handleLeftPointerDown(pointerEvent: PointerEvent) {
-  console.log("pointer down", pointerEvent);
-
   const isCtrl = pointerEvent.ctrlKey;
   const isShift = pointerEvent.shiftKey;
   const isAlt = pointerEvent.altKey;
   const irRight = pointerEvent.button === 2;
 
-  //if isCtrl
+  //if isCtrl, make it green
   if (isCtrl) {
     success.value = true;
     failure.value = false;
@@ -45,7 +43,7 @@ function handleLeftPointerDown(pointerEvent: PointerEvent) {
     return;
   }
 
-  //if isShift
+  //if isShift, make it red
   if (isShift) {
     success.value = false;
     failure.value = true;
@@ -53,7 +51,7 @@ function handleLeftPointerDown(pointerEvent: PointerEvent) {
     return;
   }
 
-  //if isAlt
+  //if isAlt, lock it
   if (isAlt) {
     success.value = false;
     failure.value = false;
@@ -61,7 +59,7 @@ function handleLeftPointerDown(pointerEvent: PointerEvent) {
     return;
   }
 
-  //if right click
+  //if right click, reset
   if (irRight) {
     success.value = false;
     failure.value = false;
