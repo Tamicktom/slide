@@ -1,6 +1,4 @@
 ---
-dragPos:
-  square: 242,127,278,119
 ---
 
 ## Força bruta
@@ -9,13 +7,11 @@ dragPos:
 
 <Cadeia cadeia="TRES TIGRES TRISTES" />
 
-<Cadeia v-drag="'square'" cadeia="TRISTE" />
+<Cadeia v-drag="'fb-1'" cadeia="TRISTE" />
 
 <Counter />
 
 ---
-dragPos:
-  square: 402,196,352,90
 ---
 
 ### Implementação
@@ -116,8 +112,8 @@ fn brute_force_search(text: &str, pattern: &str) -> Vec<usize> {
 ```
 ````
 
-<Cadeia v-click=[6] v-drag="'square'" cadeia="ABRAKADABRA" class="absolute bottom-0 left-0" />
-<Cadeia v-click=[6] v-drag="'square'" cadeia="ABRA" class="absolute bottom-0 right-0" />
+<Cadeia v-click=[6] v-drag="'fb-2'" cadeia="ABRAKADABRA" class="absolute bottom-0 left-0" />
+<Cadeia v-click=[6] v-drag="'fb-3'" cadeia="ABRA" class="absolute bottom-0 right-0" />
 
 <!--
 usize - representa número sem especificar quantidade de bytes.
@@ -132,8 +128,6 @@ u128 - 0 a 340.282.366.920.938.463.463.374.607.431.768.211.455
 -->
 
 ---
-dragPos:
-  square: 532,275,181,90
 ---
 
 ### Análise
@@ -145,8 +139,19 @@ $O((n-m+1)m)$
 
 O algoritmo percorre todas as posições do texto $(n-m+1)$ e, para cada posição, compara o padrão com o texto (até $m$ caracteres).
 
-<Cadeia v-drag="'square'" cadeia="ABRAKADABRA" class="absolute bottom-0 left-0" />
-<Cadeia v-drag="'square'" cadeia="ABRA" class="absolute bottom-0 right-0" />
+exemplo:
+
+- texto: "AAAAAAAAAA" -> tamanho: 10
+- padrão: "AAAA" -> tamanho: 4
+
+$O((10 - 4 + 1) * 4)$
+
+$O(7 * 4)$
+
+$O(28)$
+
+<Cadeia v-drag="'fb-4'" cadeia="AAAAAAAAAA" class="absolute bottom-0 left-0" />
+<Cadeia v-drag="'fb-5'" cadeia="AAAA" class="absolute bottom-0 right-0" />
 
 <!--
 O força bruta tem O notation de O((n-m+1)m), onde n é o tamanho do texto e m é o tamanho do padrão.
