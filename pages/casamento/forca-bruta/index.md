@@ -1,6 +1,6 @@
 ---
 dragPos:
-  square: 333,431,279,97
+  square: 376,452,199,70
 ---
 
 ## Força bruta

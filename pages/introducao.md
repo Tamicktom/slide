@@ -13,13 +13,6 @@ layout: statement
 </div>
 
 ---
-layout: 3-images
-imageLeft: '../images/music.gif'
-imageTopRight: '../images/video.gif'
-imageBottomRight: '../images/book.gif'
----
-
----
 layout: statement
 ---
 
