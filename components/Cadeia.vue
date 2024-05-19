@@ -18,12 +18,7 @@ const start = ref(props.start);
 </script>
 
 <template>
-  <div class="flex items-center justify-center">
-    <Position
-      v-for="(char, index) in cadeia"
-      :key="index"
-      :count="start + index"
-      :string="char"
-    />
+  <div class="flex items-center justify-center py-4">
+    <Position v-for="(char, index) in cadeia" :key="index" :count="start + index" :string="char" />
   </div>
 </template>
