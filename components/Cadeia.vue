@@ -7,17 +7,22 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  start: {
+    type: Number,
+    default: 0,
+  },
 })
 
 const cadeia = ref(props.cadeia);
+const start = ref(props.start);
 </script>
 
 <template>
-  <div class="items-center justify-center flex">
+  <div class="flex items-center justify-center">
     <Position
       v-for="(char, index) in cadeia"
       :key="index"
-      :count="index"
+      :count="start + index"
       :string="char"
     />
   </div>
