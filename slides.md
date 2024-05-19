@@ -3,7 +3,7 @@
 theme: apple-basic
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: /images/background.webp
+background: /images/processamento-de-cadeias.gif
 # some information about your slides, markdown enabled
 title: Processamento de cadeias
 info: |
@@ -20,25 +20,35 @@ transition: slide-left
 # enable MDC Syntax: https://sli.dev/guide/syntax#mdc-syntax
 mdc: true
 # layout: intro-image
-# image: /images/background.webp
+# image: /images/processamento-de-cadeias.gif
 ---
+
+<div class="absolute top-0 left-0 flex items-center justify-center w-full h-full -z-10">
+<img
+  src="/images/processamento-de-cadeias.gif" 
+  alt=""
+  class="object-cover w-full h-full scale-105"
+/>
+<!-- <div class="absolute top-0 left-0 w-full h-full bg-white bg-opacity-70"/> -->
+</div>
 
 # Processamento de cadeias
 
 Casamento, Compressão e análise
 
-<div class="absolute bottom-10">
+<div class="absolute z-10 flex flex-row items-center gap-4 p-2 text-white rounded-lg bottom-10 bg-black/50 backdrop-blur-8">
+  <img src="https://github.com/tamicktom.png" alt="Github" class="transition-all rounded-full hover:shadow-lg size-12 hover:scale-105" />
   <span class="font-700">
     Henrique Ângelo V. Fonseca, 2024
   </span>
 </div>
 
-<Socials />
+
 
 <img 
-src="/images/logo-unesp.jpg" 
-alt="" 
-class="w-full absolute bottom-10 right-10 max-w-[128px] overflow-hidden rounded-lg bg-white p-2"
+  src="/images/logo-unesp.jpg" 
+  alt="" 
+  class="w-full absolute bottom-10 right-10 max-w-[128px] overflow-hidden rounded-lg bg-white p-2 z-10"
 />
 
 ---

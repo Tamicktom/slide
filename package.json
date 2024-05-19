@@ -8,6 +8,7 @@
     "export": "slidev export"
   },
   "dependencies": {
+    "@phosphor-icons/vue": "^2.2.1",
     "@slidev/cli": "^0.49.3",
     "@slidev/theme-apple-basic": "^0.25.1",
     "@slidev/theme-default": "latest",
