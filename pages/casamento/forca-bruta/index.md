@@ -1,4 +1,6 @@
 ---
+dragPos:
+  fb-1: 193,135,192,90
 ---
 
 ## Força bruta
@@ -12,6 +14,9 @@
 <Counter />
 
 ---
+dragPos:
+  fb-2: 379,188,352,90
+  fb-3: 599,225,128,90
 ---
 
 ### Implementação
