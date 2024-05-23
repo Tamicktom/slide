@@ -32,9 +32,12 @@ mdc: true
 <!-- <div class="absolute top-0 left-0 w-full h-full bg-white bg-opacity-70"/> -->
 </div>
 
-# Processamento de cadeias
-
-Casamento, Compressão e análise
+<div class="w-full flex justify-center items-center">
+<div class="px-4 pt-2 rounded-lg bg-black/50 backdrop-blur-8 flex flex-col justify-center items-center text-white z-10 w-fit">
+<h1>Processamento de Cadeias</h1>
+<p>Casamento, Compressão e análise</p>
+</div>
+</div>
 
 <div class="absolute z-10 flex flex-row items-center gap-4 p-2 text-white rounded-lg bottom-10 bg-black/50 backdrop-blur-8">
   <img src="https://github.com/tamicktom.png" alt="Github" class="transition-all rounded-full hover:shadow-lg size-12 hover:scale-105" />

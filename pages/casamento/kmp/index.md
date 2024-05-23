@@ -14,11 +14,38 @@ dragPos:
 ---
 ---
 
-Contrução da tabela de falha
+KMP - Contrução da tabela de falha
 
 <img
 v-click
 src="/images/kmp-1.svg"
+/>
+
+---
+---
+
+KMP - Contrução da tabela de falha
+
+<img
+src="/images/kmp-2.svg"
+/>
+
+---
+---
+
+KMP - Exemplo de busca
+
+<img
+src="/images/kmp-3.svg"
+/>
+
+---
+---
+
+KMP - Exemplo de busca
+
+<img
+src="/images/kmp-4.svg"
 />
 
 ---

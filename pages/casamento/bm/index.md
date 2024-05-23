@@ -14,6 +14,24 @@ dragPos:
 ---
 ---
 
+BM - Deslocamento por caráter ruim
+
+<img
+src="/images/bm-1.svg"
+/>
+
+---
+---
+
+BM - Deslocamento por sufixo bom
+
+<img
+src="/images/bm-2.svg"
+/>
+
+---
+---
+
 ### Implementação - Boyer-Moore
 
 ````md magic-move

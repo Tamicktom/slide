@@ -15,11 +15,11 @@ hide: false
 ---
 
 ---
-src: ./bm/index.md
+src: ./kmp/index.md
 hide: false
 ---
 
 ---
-src: ./kmp/index.md
+src: ./bm/index.md
 hide: false
 ---
