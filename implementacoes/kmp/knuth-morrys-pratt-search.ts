@@ -23,7 +23,7 @@ function computeLongestPrefixSuffixArray(pattern: string[]): number[] {
   return lps; // Retorna o array LPS calculado
 }
 
-function KMPSearch(pattern: string[], text: string[]): void {
+function KMPSearch(pattern: string[], text: string[]): number[] {
   const patternLength = pattern.length;
   const textLength = text.length;
 
@@ -31,7 +31,8 @@ function KMPSearch(pattern: string[], text: string[]): void {
   let j = 0; // Índice para pattern[]
   let i = 0; // Índice para text[]
 
-  console.log(`Taela de transição de falhas: [${lps}]`);
+  console.log(`Tabela de transição de falhas: [${lps}]`);
+  const patternPositions: number[] = [];
 
   while ((textLength - i) >= (patternLength - j)) {
     if (pattern[j] === text[i]) { // Se os caracteres correspondem
@@ -39,7 +40,7 @@ function KMPSearch(pattern: string[], text: string[]): void {
       i++;
     }
     if (j === patternLength) { // Se o padrão foi encontrado
-      console.log(`Padrão encontrado em: ${i - j}`);
+      patternPositions.push(i - j); // Adiciona a posição do padrão encontrado
       j = lps[j - 1]; // Atualiza j para o próximo caractere
     } else if (i < textLength && pattern[j] !== text[i]) { // Se os caracteres não correspondem
       if (j !== 0) { // Se j não é 0, atualiza j
@@ -49,9 +50,14 @@ function KMPSearch(pattern: string[], text: string[]): void {
       }
     }
   }
+
+  return patternPositions; // Retorna as posições do padrão encontrado
 }
 
 // Converte as strings em arrays de caracteres
 const text = "A ARANHA SUBIU A PAREDE".split('');
 const pattern = "ARANHA".split('');
-KMPSearch(pattern, text);
+
+console.log(`Texto:                         [${text}]`);
+console.log(`Padrão:                        [${pattern}]`);
+console.log(`Posições do padrão no texto:   [${KMPSearch(pattern, text)}]`);

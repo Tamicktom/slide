@@ -227,7 +227,7 @@ function KMPSearch(pattern: string[], text: string[]): void {
 ### Análise
 
 - **Tempo de pré-processamento**: $O(m)$
-- **Tempo de busca**: $O(n)$
+- **Tempo de busca**: $O(m+n)$
 
 onde $m$ é o tamanho do padrão e $n$ é o tamanho do texto.
 
