@@ -8,7 +8,7 @@ src="/images/kmp-paper.png"
 
 ---
 dragPos:
-  kmp-1: 183,147,192,90
+  kmp-1: 126,135,192,90
 ---
 
 <Cadeia cadeia="A ARANHA SUBIU A PAREDE" />
@@ -135,11 +135,88 @@ src="/images/kmp-4.svg"
 ### Implementação
 
 ````md magic-move
-```rust
-pub struct KMP {
-    pattern: Vec<char>,
-    failure_function: Vec<usize>,
-    pattern_length: usize
+```typescript
+// primeiro passo: construir a tabela de falhas
+function computeLongestPrefixSuffixArray(pattern: string[]): number[] {...}
+```
+```typescript
+function computeLongestPrefixSuffixArray(pattern: string[]): number[] {
+  const patternLength: number = pattern.length;
+  const lps: number[] = new Array(patternLength).fill(0);
+  let length = 0; // Comprimento do maior prefixo que é também sufixo
+  let i = 1;
+
+  // Calcula o array de LPS para o padrão
+  while (i < patternLength) {...}
+
+  return lps; // Retorna o array LPS calculado
+}
+```
+```typescript
+function computeLongestPrefixSuffixArray(pattern: string[]): number[] {
+  const patternLength: number = pattern.length;
+  const lps: number[] = new Array(patternLength).fill(0);
+  let length = 0; // Comprimento do maior prefixo que é também sufixo
+  let i = 1;
+
+  // Calcula o array de LPS para o padrão
+  while (i < patternLength) {
+    if (pattern[i] === pattern[length]) {
+      length++;
+      lps[i] = length;
+      i++;
+    } else {
+      if (length !== 0) {
+        length = lps[length - 1];
+      } else {
+        lps[i] = 0;
+        i++;
+      }
+    }
+  }
+
+  return lps; // Retorna o array LPS calculado
+}
+```
+```typescript
+function computeLongestPrefixSuffixArray(pattern: string[]): number[] {...}
+
+function KMPSearch(pattern: string[], text: string[]): void {
+  const patternLength = pattern.length;
+  const textLength = text.length;
+
+  const lps = computeLongestPrefixSuffixArray(pattern);
+  let j = 0; // Índice para pattern[]
+  let i = 0; // Índice para text[]
+}
+```
+```typescript
+function computeLongestPrefixSuffixArray(pattern: string[]): number[] {...}
+
+function KMPSearch(pattern: string[], text: string[]): void {
+  const patternLength = pattern.length;
+  const textLength = text.length;
+
+  const lps = computeLongestPrefixSuffixArray(pattern);
+  let j = 0; // Índice para pattern[]
+  let i = 0; // Índice para text[]
+
+  while ((textLength - i) >= (patternLength - j)) {
+    if (pattern[j] === text[i]) { // Se os caracteres correspondem
+      j++;
+      i++;
+    }
+    if (j === patternLength) { // Se o padrão foi encontrado
+      console.log(`Padrão encontrado em: ${i - j}`);
+      j = lps[j - 1]; // Atualiza j para o próximo caractere
+    } else if (i < textLength && pattern[j] !== text[i]) { // Se os caracteres não correspondem
+      if (j !== 0) { // Se j não é 0, atualiza j
+        j = lps[j - 1]; // Atualiza j para o próximo caractere
+      } else { // Se j é 0, atualiza i
+        i = i + 1; // Atualiza i para o próximo caractere
+      }
+    }
+  }
 }
 ```
 ````

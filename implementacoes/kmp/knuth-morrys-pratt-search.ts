@@ -1,76 +1,57 @@
-//Javascript program for implementation of KMP pattern
-// searching algorithm
-
-function computeLPSArray(pat: string, M: number, lps: number[]) {
-  // length of the previous longest prefix suffix
-  let len = 0;
+function computeLongestPrefixSuffixArray(pattern: string[]): number[] {
+  const patternLength: number = pattern.length;
+  const lps: number[] = new Array(patternLength).fill(0);
+  let length = 0; // Comprimento do maior prefixo que é também sufixo
   let i = 1;
-  lps[0] = 0; // lps[0] is always 0
 
-  // the loop calculates lps[i] for i = 1 to M-1
-  while (i < M) {
-    if (pat.charAt(i) === pat.charAt(len)) {
-      len++;
-      lps[i] = len;
-      i++;
-    }
-    else // (pat[i] != pat[len])
-    {
-      // This is tricky. Consider the example.
-      // AAACAAAA and i = 7. The idea is similar
-      // to search step.
-      if (len !== 0) {
-        len = lps[len - 1];
-
-        // Also, note that we do not increment
-        // i here
-      }
-      else // if (len == 0)
-      {
-        lps[i] = len;
+  // Calcula o array de LPS para o padrão
+  while (i < patternLength) { // Enquanto não percorrer todo o padrão
+    if (pattern[i] === pattern[length]) { // Se os caracteres correspondem
+      length++;
+      lps[i] = length; // Atualiza o valor do array LPS
+      i++; // Atualiza o índice
+    } else { // Se os caracteres não correspondem
+      if (length !== 0) { // Se o comprimento não é 0
+        length = lps[length - 1]; // Atualiza o comprimento
+      } else {
+        lps[i] = 0; // Atualiza o valor do array LPS
         i++;
       }
     }
   }
+
+  return lps; // Retorna o array LPS calculado
 }
 
-function KMPSearch(pat: string, txt: string) {
-  const M = pat.length;
-  const N = txt.length;
+function KMPSearch(pattern: string[], text: string[]): void {
+  const patternLength = pattern.length;
+  const textLength = text.length;
 
-  // create lps[] that will hold the longest
-  // prefix suffix values for pattern
-  const lps = [];
-  let j = 0; // index for pat[]
+  const lps = computeLongestPrefixSuffixArray(pattern);
+  let j = 0; // Índice para pattern[]
+  let i = 0; // Índice para text[]
 
-  // Preprocess the pattern (calculate lps[]
-  // array)
-  computeLPSArray(pat, M, lps);
+  console.log(`Taela de transição de falhas: [${lps}]`);
 
-  let i = 0; // index for txt[]
-  while ((N - i) >= (M - j)) {
-    if (pat.charAt(j) === txt.charAt(i)) {
+  while ((textLength - i) >= (patternLength - j)) {
+    if (pattern[j] === text[i]) { // Se os caracteres correspondem
       j++;
       i++;
     }
-    if (j === M) {
-      console.log(`Found pattern at index ${i - j}`);
-      j = lps[j - 1];
-    }
-
-    // mismatch after j matches
-    else if (i < N && pat.charAt(j) !== txt.charAt(i)) {
-      // Do not match lps[0..lps[j-1]] characters,
-      // they will match anyway
-      if (j !== 0)
-        j = lps[j - 1];
-      else
-        i = i + 1;
+    if (j === patternLength) { // Se o padrão foi encontrado
+      console.log(`Padrão encontrado em: ${i - j}`);
+      j = lps[j - 1]; // Atualiza j para o próximo caractere
+    } else if (i < textLength && pattern[j] !== text[i]) { // Se os caracteres não correspondem
+      if (j !== 0) { // Se j não é 0, atualiza j
+        j = lps[j - 1]; // Atualiza j para o próximo caractere
+      } else { // Se j é 0, atualiza i
+        i = i + 1; // Atualiza i para o próximo caractere
+      }
     }
   }
 }
 
-
-const txt = "ABABDABACDABABCABAB";
-const pat = "ABABCABAB";
-KMPSearch(pat, txt);
+// Converte as strings em arrays de caracteres
+const text = "A ARANHA SUBIU A PAREDE".split('');
+const pattern = "ARANHA".split('');
+KMPSearch(pattern, text);
