@@ -7,11 +7,9 @@ src="/images/kmp-paper.png"
 </div>
 
 ---
-dragPos:
-  kmp-1: 126,135,192,90
 ---
 
-<Cadeia cadeia="A ARANHA SUBIU A PAREDE" />
+<Cadeia cadeia="A ARANHARANHARRANHA" />
 
 <Cadeia v-drag="'kmp-1'" cadeia="ARANHA" />
 
@@ -35,6 +33,12 @@ KMP
 src="/images/kmp-clear.svg"
 />
 </div>
+
+<Cadeia v-click cadeia="AAABAAC" />
+
+<Cadeia v-click v-drag="'KMP-BANANA'" cadeia="AAC" />
+
+<Cadeia v-click cadeia="010" />
 
 <!--
 O KMP parte da ideia de um diagrama de estados, onde cada estado representa um prefixo do padrão.

@@ -55,8 +55,8 @@ function KMPSearch(pattern: string[], text: string[]): number[] {
 }
 
 // Converte as strings em arrays de caracteres
-const text = "A ARANHA SUBIU A PAREDE".split('');
-const pattern = "ARANHA".split('');
+const text = "AAABAAABAAAC".split('');
+const pattern = "AAC".split('');
 
 console.log(`Texto:                         [${text}]`);
 console.log(`Padrão:                        [${pattern}]`);
