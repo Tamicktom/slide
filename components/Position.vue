@@ -21,6 +21,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  hideCount: {
+    type: Boolean,
+    default: false,
+  }
 })
 
 const counter = ref(props.count);
@@ -28,6 +32,7 @@ const string = ref(props.string);
 const success = ref(props.success);
 const failure = ref(props.failure);
 const locked = ref(props.locked);
+const hideCount = ref(props.hideCount);
 
 function handleLeftPointerDown(pointerEvent: PointerEvent) {
   const isCtrl = pointerEvent.ctrlKey;
@@ -71,7 +76,7 @@ function handleLeftPointerDown(pointerEvent: PointerEvent) {
 <template>
   <div class="flex items-center justify-center">
     <button class="flex flex-col items-center justify-center outline-none" @pointerdown="handleLeftPointerDown">
-      <div class="w-8">
+      <div v-if="!hideCount" class="w-8 flex w-full justify-center">
         <span class="font-mono text-xs text-neutral-300">{{ counter }}</span>
       </div>
       <div
