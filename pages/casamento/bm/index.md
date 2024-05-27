@@ -24,7 +24,7 @@ O algoritmo é mais eficiente que o KMP na prática.
 
 ---
 dragPos:
-  bm-1: -6,-61,0,0
+  bm-1: 616,84,192,80
 ---
 
 <Cadeia cadeia="JACARE TIGRES TRISTE" />
@@ -43,7 +43,7 @@ Os dois calculos são completamente independentes. BM sempre escolhe o maior des
 
 ---
 dragPos:
-  bm-2: 56,186,192,90
+  bm-2: 361,211,192,60
 ---
 
 BM - Deslocamento por caráter ruim
@@ -80,7 +80,7 @@ Então, o BM pula o padrão até o caractere N, dentro do padrão. No caso, desl
 
 ---
 dragPos:
-  bm-algo-2: 56,234,192,90
+  bm-algo-2: 299,106,192,90
 ---
 
 BM - Deslocamento por caráter ruim
@@ -129,6 +129,10 @@ Observar a ocorrência mais à direita de cada caráter. Exceto o último e inse
 Caracteres que não estiverem na tabela hash, valerão -1.
 
 BM sempre vai colocar a posição mais a direita na tabela hash.
+
+Assim, no exemplo de "A AGUA PINGA", na primeira comparação, o BM vai pular 5 posições.
+
+Pois, 4 - (-1) = 5.
 -->
 
 ---

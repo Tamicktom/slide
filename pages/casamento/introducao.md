@@ -1,6 +1,6 @@
 ---
 dragPos:
-  square: 324,157,264,102
+  square: 562,125,264,102
 ---
 
 <Cadeia cadeia="EU GOSTO DE BATATA" />
