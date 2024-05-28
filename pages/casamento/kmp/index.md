@@ -7,8 +7,6 @@ src="/images/kmp-paper.png"
 </div>
 
 ---
-dragPos:
-  kmp-1: -76,-5,0,0
 ---
 
 <Cadeia cadeia="A ARANHARANHARRANHA" />
@@ -27,7 +25,7 @@ Com o passar dos anos, algoritmos mais sofisticados permitem encontrar padrões 
 
 ---
 dragPos:
-  KMP-BANANA: -76,-5,0,0
+  KMP-BANANA: 441,153,96,80
 ---
 
 KMP

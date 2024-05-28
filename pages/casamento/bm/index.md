@@ -24,7 +24,7 @@ O algoritmo é mais eficiente que o KMP na prática.
 
 ---
 dragPos:
-  bm-1: 364,23,192,55
+  bm-1: 362,21,192,55
 ---
 
 <Cadeia cadeia="JACARE TIGRES TRISTE" />
@@ -43,7 +43,7 @@ Os dois calculos são completamente independentes. BM sempre escolhe o maior des
 
 ---
 dragPos:
-  bm-2: 427,120,192,60
+  bm-2: 425,122,192,60
 ---
 
 BM - Deslocamento por caráter ruim
@@ -80,7 +80,7 @@ Então, o BM pula o padrão até o caractere N, dentro do padrão. No caso, desl
 
 ---
 dragPos:
-  bm-algo-2: 298,121,192,57
+  bm-algo-2: 458,124,192,57
 ---
 
 BM - Deslocamento por caráter ruim
@@ -143,7 +143,7 @@ Quando um simbolo for buscado na tabela hash e não for encontrado, o BM pula o 
 
 ---
 dragPos:
-  bm-sufixo-bom: 303,185,288,80
+  bm-sufixo-bom: 323,339,288,55
 ---
 
 BM - Deslocamento por sufixo bom
@@ -161,12 +161,14 @@ Comparando "A", vai ser positivo. Comparando "B", vai ser positivo. Quando chega
 
 O sufixo bom é o sufixo que se repete no padrão, com o caractere anterior diferente.
 
+No caso, vai ser o "CBA", que é diferente do "DBA".
+
 O deslocamento efetivo é de 6 posições.
 -->
 
 ---
 dragPos:
-  bm-sufixo-bom-2: 56,224,288,80
+  bm-sufixo-bom-2: 199,263,288,53
 ---
 
 BM - Deslocamento por sufixo bom
@@ -183,6 +185,8 @@ Após fazer a comparação, procuro para trás o padrão.
 Não vou encontrar o sufixo bom, pois ele não se repete com o caractere anterior diferente.
 
 O deslocamento vai ser o tamanho do padrão.
+
+A proxima comparação vai ser lá na posição 17.
 -->
 
 ---
@@ -200,14 +204,138 @@ BM - Deslocamento por sufixo bom
 
 <!--
 BABDB[ADBA]
+
+"ADBA" não aparecer para trás.
+
+"DBA" não aparece para trás.
+
+"BA" aparece para trás.
+
+Então eu preciso deslocar o padrão de forma que o "BA" do começo do padrão case com o "BA" do sufixo bom.
 -->
 
 ---
+dragPos:
+  bm-sufixo-bom-3: 56,224,288,80
 ---
 
 BM - Deslocamento por sufixo bom
 
 - Cálculo do deslocamento
+
+<Cadeia cadeia="BAADBDCBA" />
+
+<Cadeia v-drag="'bm-sufixo-bom-3'" cadeia="777777761" />
+
+<!--
+Essa tabela é para calcular o deslocamento. Por exemplo, se a falha ocorrer na posição 8, o deslocamento vai ser 1.
+
+Se a falha ocorrer na posição 7, o deslocamento vai ser 6.
+
+Nenhum sufixo foi encontrado.
+
+Sufixo "A" válido. Sufixo se repete 6 posições atrás.
+
+Sufixo "BA" válido. Sufixo se repete 7 posições atrás.
+
+Sufixo "CBA" válido. Sufixo não se repete, mas o fragmento "BA" existe 7 posições atrás.
+
+Sufixo "DCBA" válido. Sufixo não se repete, mas o fragmento "BA" existe 7 posições atrás.
+-->
+
+---
+---
+
+### Exemplo
+
+padrão:
+
+<Cadeia cadeia="GCAGAGAG" />
+
+Tabela hash:
+
+<div class="flex flex-row items-center justify-center">
+<div class="flex flex-col items-center justify-center">
+<Position string="A" :hideCount="true" />
+<Position string="C" :hideCount="true" />
+<Position string="G" :hideCount="true" />
+</div>
+<div class="flex flex-col items-center justify-center">
+<Position string="6" :hideCount="true" />
+<Position string="1" :hideCount="true" />
+<Position string="5" :hideCount="true" />
+</div>
+</div>
+
+Vetor para cálculo dos deslocamentos por sufixo bom:
+
+<Cadeia cadeia="GCAGAGAG" />
+<Cadeia cadeia="77727471" />
+
+<!--
+O fato dos números da tabela de deslocamento ficarem "fora de ordem" é natural.
+-->
+
+---
+dragPos:
+  bm-exemplo-3: 761,177,64,96
+  bm-exemplo-1: 264,122,256,80
+  bm-exemplo-2: 266,34,256,80
+---
+
+### Exemplo
+
+<div v-drag="'bm-exemplo-3'" class="flex flex-row items-center justify-center">
+<div class="flex flex-col items-center justify-center">
+<Position string="A" :hideCount="true" />
+<Position string="C" :hideCount="true" />
+<Position string="G" :hideCount="true" />
+</div>
+<div class="flex flex-col items-center justify-center">
+<Position string="6" :hideCount="true" />
+<Position string="1" :hideCount="true" />
+<Position string="5" :hideCount="true" />
+</div>
+</div>
+
+<Cadeia v-drag="'bm-exemplo-1'" cadeia="77727471" />
+
+<Cadeia cadeia="GCATCGCAGAGAGTATACAGTACG" />
+<Cadeia v-drag="'bm-exemplo-2'" cadeia="GCAGAGAG" />
+
+<!--
+DCR = Deslocamento por caráter ruim
+
+DSB = Deslocamento por sufixo bom
+
+1. ==============================
+
+Comparando posição 7 do padrão, com 7 do texto.
+
+Caráter ruim A. Deslocamento: 7 - DCR['A'] = 7 - 6 = 1.
+
+Sufixo bom: - Deslocamento: DSB[7] = 1
+
+Melhor deslocamento: 1
+
+Sempre será calculado os dois. É comum que os valores sejam iguais.
+
+2. ==============================
+
+Comparando posição 7 do padrão, com 8 do texto
+
+Caráter ruim: C. Deslocamento: 5 - DCR["C"] = 5 - 1 = 4
+
+Sufixo bom: - Deslocamento: DSB[5] = 4
+
+Melhor deslocamento: 4
+
+3. ==============================
+
+Padrão encontrado na posção 12 do texto.
+
+Após encontrar o padrão, se quiser continuar buscando, o BM vai pular 1 posição.
+-->
 
 ---
 ---
