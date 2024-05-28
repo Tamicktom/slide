@@ -340,18 +340,7 @@ Após encontrar o padrão, se quiser continuar buscando, o BM vai pular 1 posiç
 ---
 ---
 
-### Implementação - Boyer-Moore
-
-````md magic-move
-```rust
-let
-```
-````
-
----
----
-
-<iframe src="http://whocouldthat.be/visualizing-string-matching/" class="w-full h-[512px]"></iframe>
+<iframe src="https://cmps-people.ok.ubc.ca/ylucet/DS/BoyerMoore.html" class="w-full h-[512px]"></iframe>
 
 ---
 ---
@@ -360,3 +349,9 @@ let
 
 - Melhor caso: $O(n/m)$
 - Pior caso: $O(nm)$
+
+<!--
+Esse melhor caso é quando o padrão é encontrado logo no início do texto.
+
+O pior caso é quando todos os caracteres do texto são iguais ao padrão.
+-->
