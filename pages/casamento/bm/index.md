@@ -142,17 +142,72 @@ Quando um simbolo for buscado na tabela hash e não for encontrado, o BM pula o 
 -->
 
 ---
+dragPos:
+  bm-sufixo-bom: 303,185,288,80
 ---
 
 BM - Deslocamento por sufixo bom
 
-<img
-src="/images/bm-2.svg"
-/>
+- Caso 1: Sufixo (BA) se repete com caráter anterior diferente.
+
+<Cadeia cadeia="BACBDACBADBADBACCBABADAB" />
+
+<Cadeia v-drag="'bm-sufixo-bom'" cadeia="CBADBADBA" />
 
 <!--
-O deslocamento por sufixo bom é o deslocamento que o BM faz quando o último caractere do padrão casar com o texto.
+CBADBAD[BA]
+
+Comparando "A", vai ser positivo. Comparando "B", vai ser positivo. Quando chegar no "D", vai ser negativo.
+
+O sufixo bom é o sufixo que se repete no padrão, com o caractere anterior diferente.
+
+O deslocamento efetivo é de 6 posições.
 -->
+
+---
+dragPos:
+  bm-sufixo-bom-2: 56,224,288,80
+---
+
+BM - Deslocamento por sufixo bom
+
+- Caso 2: Sufixo não se repete com caráter anterior diferente.
+
+<Cadeia cadeia="BACBDACBADBADBACCBABADAB" />
+
+<Cadeia v-drag="'bm-sufixo-bom-2'" cadeia="CABDBADBA" />
+
+<!--
+Após fazer a comparação, procuro para trás o padrão.
+
+Não vou encontrar o sufixo bom, pois ele não se repete com o caractere anterior diferente.
+
+O deslocamento vai ser o tamanho do padrão.
+-->
+
+---
+dragPos:
+  bm-sufixo-bom-3: 105,128,288,49
+---
+
+BM - Deslocamento por sufixo bom
+
+- Caso 3: Parte do sufixo se repete no início do padrão.
+
+<Cadeia cadeia="BACBDADBADBADBACCBABADAB" />
+
+<Cadeia v-drag="'bm-sufixo-bom-3'" cadeia="BABDBADBA" />
+
+<!--
+BABDB[ADBA]
+-->
+
+---
+---
+
+BM - Deslocamento por sufixo bom
+
+- Cálculo do deslocamento
 
 ---
 ---
