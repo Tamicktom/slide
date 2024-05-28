@@ -2,63 +2,63 @@
 type BadMatchTable = Record<string, number>
 
 // Função para construir a Tabela de Más Correspondências
-const buildBadMatchTable = (str: string): BadMatchTable => {
+// Função para construir a Tabela de Más Correspondências
+export const buildBadMatchTable = (pattern: string[]): BadMatchTable => {
   const tableObj: BadMatchTable = {}
-  const strLength = str.length
+  const patternLength = pattern.length
 
-  // Preenche a tabela com as posições das más correspondências
-  for (let i = 0; i < strLength - 1; i++) {
-    tableObj[str[i]] = strLength - 1 - i
+  // Preencher a tabela com o valor padrão
+  for (let i = 0; i < patternLength - 1; i++) {
+    const char = pattern[i];
+    tableObj[char] = i;
   }
 
-  // Adiciona a última letra do padrão à tabela, se não estiver presente
-  if (tableObj[str[strLength - 1]] === undefined) {
-    tableObj[str[strLength - 1]] = strLength
+  // Se o caractere final do padrão não estiver na tabela, adicione-o
+  const lastChar = pattern[patternLength - 1]
+  if (!tableObj[lastChar]) {
+    tableObj[lastChar] = patternLength - 1;
   }
 
-  return tableObj
+  return tableObj;
 }
 
 // Função que implementa o algoritmo Boyer-Moore
-const boyerMoore = (str: string, pattern: string) => {
+export const boyerMoore = (text: string[], pattern: string[]): {
+  indexes: number[]
+  comparisons: number
+} => {
   // Construir a Tabela de Más Correspondências para o padrão
-  const badMatchTable = buildBadMatchTable(pattern)
-  let offset = 0
-  const patternLastIndex = pattern.length - 1
-  const maxOffset = str.length - pattern.length
+  const badMatchTable = buildBadMatchTable(pattern);
+  const patternLastIndex = pattern.length - 1;
+  const maxOffset = text.length - pattern.length;
+  const indexes: number[] = [];
+  let offset = 0;
 
-  // Percorrer a string de entrada até o ponto onde o padrão ainda pode ser encontrado
-  while (offset <= maxOffset) {
-    let scanIndex = 0
+  // Contador de comparações
+  let comparisons = 0;
 
-    // Verificar se há correspondência do padrão na posição atual
-    while (pattern[scanIndex] === str[scanIndex + offset]) {
-      if (scanIndex === patternLastIndex) {
-        // Padrão encontrado na posição atual
-        return offset
-      }
-      scanIndex++
-    }
+  // Percorrer o array de caracteres até o ponto onde o padrão ainda pode ser encontrado
+  for (let i = 0; i <= maxOffset; i += offset) {
+    offset = 0;
 
-    // Obtém o caractere de má correspondência
-    const badMatchString = str[offset + patternLastIndex]
-
-    // Ajusta o offset baseado na Tabela de Más Correspondências
-    if (badMatchTable[badMatchString]) {
-      offset += badMatchTable[badMatchString]
-    } else {
-      offset++
+    // Percorrer o padrão de trás para frente
+    for (let j = patternLastIndex; j >= 0; j--) {
+      
     }
   }
 
-  // Retorna -1 se o padrão não for encontrado
-  return -1
+  return {
+    indexes,
+    comparisons
+  }
 }
 
-// Testes da função boyerMoore
-console.log(boyerMoore('A ARANHA ARRANHA A JARRA', 'ARANHA')) // Esperado: 2
-console.log(boyerMoore('AAIOOOAADDZXYCAADAABAABA', 'AADA')) // Esperado: 13
+const text = 'A ARANHA ARRANHA A JARRA'.split('')
+const pattern = 'ARANHA'.split('')
 
-// Testes da função buildBadMatchTable
-console.log(buildBadMatchTable('ARANHA')) // Esperado: { T: 3, E: 2, S: 1 }
-console.log(buildBadMatchTable('AADA')) // Esperado: { A: 1, D: 2 }
+console.log(`
+Texto: ${text.join('')}
+Padrão: ${pattern.join('')}
+Posição do padrão no texto: ${boyerMoore(text, pattern)}
+Tabela de Más Correspondências: ${JSON.stringify(buildBadMatchTable(pattern))}
+`)

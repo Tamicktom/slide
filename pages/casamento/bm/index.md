@@ -24,7 +24,7 @@ O algoritmo é mais eficiente que o KMP na prática.
 
 ---
 dragPos:
-  bm-1: 616,84,192,80
+  bm-1: 364,23,192,55
 ---
 
 <Cadeia cadeia="JACARE TIGRES TRISTE" />
@@ -43,7 +43,7 @@ Os dois calculos são completamente independentes. BM sempre escolhe o maior des
 
 ---
 dragPos:
-  bm-2: 361,211,192,60
+  bm-2: 427,120,192,60
 ---
 
 BM - Deslocamento por caráter ruim
@@ -80,7 +80,7 @@ Então, o BM pula o padrão até o caractere N, dentro do padrão. No caso, desl
 
 ---
 dragPos:
-  bm-algo-2: 299,106,192,90
+  bm-algo-2: 298,121,192,57
 ---
 
 BM - Deslocamento por caráter ruim
@@ -97,11 +97,13 @@ O caractere ruim "U" não aparece em nenhuma outra posição do padrão.
 Então, o BM pula o padrão inteiro.
 
 Não há nenhuma lógica de comparação, o BM já sabe que não vai casar, pois "U", que é o caractere ruim, não aparece em nenhuma outra posição do padrão.
+
+O deslocamento do padrão vai ser o suficiente para pular o "U";
 -->
 
 ---
 dragPos:
-  bm-tabela: 822,380,64,128
+  bm-tabela: 733,195,64,128
 ---
 
 Cálculo do deslocamento por caráter ruim
@@ -124,7 +126,9 @@ Cálculo do deslocamento por caráter ruim
 </div>
 
 <!--
-Observar a ocorrência mais à direita de cada caráter. Exceto o último e inserir o caráter e sua posição em uma tabela hash.
+Observar a ocorrência mais à direita de cada caráter. 
+
+Exceto o último e inserir o caráter e sua posição em uma tabela hash.
 
 Caracteres que não estiverem na tabela hash, valerão -1.
 
@@ -133,6 +137,8 @@ BM sempre vai colocar a posição mais a direita na tabela hash.
 Assim, no exemplo de "A AGUA PINGA", na primeira comparação, o BM vai pular 5 posições.
 
 Pois, 4 - (-1) = 5.
+
+Quando um simbolo for buscado na tabela hash e não for encontrado, o BM pula o padrão inteiro.
 -->
 
 ---
@@ -158,6 +164,11 @@ O deslocamento por sufixo bom é o deslocamento que o BM faz quando o último ca
 let
 ```
 ````
+
+---
+---
+
+<iframe src="http://whocouldthat.be/visualizing-string-matching/" class="w-full h-[512px]"></iframe>
 
 ---
 ---

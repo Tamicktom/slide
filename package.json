@@ -15,5 +15,8 @@
     "@slidev/theme-seriph": "latest",
     "vue": "^3.4.27",
     "vue-gradient": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.3"
   }
 }
