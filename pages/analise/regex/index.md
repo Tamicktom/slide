@@ -44,6 +44,10 @@ console.log(regex.test(texto1)); // true
 console.log(regex.test(texto2)); // true
 ```
 
+<!--
+O "i", no final da regex, é um modificador que torna a busca case insensitive.
+-->
+
 ---
 ---
 
@@ -58,6 +62,10 @@ const telefone2 = '(11) 9876-54321';
 console.log(regex.test(telefone1)); // true
 console.log(regex.test(telefone2)); // false
 ```
+
+<!--
+O operador "^" indica o início do texto e o "$" indica o final do texto.
+-->
 
 ---
 ---

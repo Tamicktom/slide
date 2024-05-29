@@ -24,7 +24,7 @@ O algoritmo é mais eficiente que o KMP na prática.
 
 ---
 dragPos:
-  bm-1: 457,20,192,55
+  bm-1: 359,19,204,58
 ---
 
 <Cadeia cadeia="JACARE TIGRES TRISTE" />
@@ -43,7 +43,7 @@ Os dois calculos são completamente independentes. BM sempre escolhe o maior des
 
 ---
 dragPos:
-  bm-2: 424,118,192,60
+  bm-2: 414,120,218,60
 ---
 
 BM - Deslocamento por caráter ruim
@@ -80,7 +80,7 @@ Então, o BM pula o padrão até o caractere N, dentro do padrão. No caso, desl
 
 ---
 dragPos:
-  bm-algo-2: 459,120,192,57
+  bm-algo-2: 642,123,215,53
 ---
 
 BM - Deslocamento por caráter ruim
@@ -103,7 +103,7 @@ O deslocamento do padrão vai ser o suficiente para pular o "U";
 
 ---
 dragPos:
-  bm-tabela: 733,195,64,128
+  bm-tabela: 680,214,81,137
 ---
 
 Cálculo do deslocamento por caráter ruim
@@ -143,7 +143,7 @@ Quando um simbolo for buscado na tabela hash e não for encontrado, o BM pula o 
 
 ---
 dragPos:
-  bm-sufixo-bom: 295,122,288,55
+  bm-sufixo-bom: 286,120,310,62
 ---
 
 BM - Deslocamento por sufixo bom
@@ -168,7 +168,7 @@ O deslocamento efetivo é de 6 posições.
 
 ---
 dragPos:
-  bm-sufixo-bom-2: 395,125,288,53
+  bm-sufixo-bom-2: 383,194,312,52
 ---
 
 BM - Deslocamento por sufixo bom
@@ -191,7 +191,7 @@ A proxima comparação vai ser lá na posição 17.
 
 ---
 dragPos:
-  bm-sufixo-bom-3: 332,127,288,49
+  bm-sufixo-bom-3: 304,126,335,50
 ---
 
 BM - Deslocamento por sufixo bom
@@ -216,7 +216,7 @@ Então eu preciso deslocar o padrão de forma que o "BA" do começo do padrão c
 
 ---
 dragPos:
-  bm-sufixo-bom-3: 347,119,288,55
+  bm-sufixo-bom-3: 331,106,318,53
 ---
 
 BM - Deslocamento por sufixo bom
@@ -233,6 +233,14 @@ Essa tabela é para calcular o deslocamento. Por exemplo, se a falha ocorrer na 
 Se a falha ocorrer na posição 7, o deslocamento vai ser 6.
 
 Nenhum sufixo foi encontrado.
+
+Não existe sufixo bom se a falha ocorrer na posição 8 do padrão. Nesse caso deslocamento de 1.
+
+Se a falha ocorrer na posição 7, vou ver se a letra "A" aparece no texto, ela aparece precidida de "A", então o deslocamento vai ser 6.
+
+Se a falha ocorrer na posição 6, vou ver se o sufixo "BA" aparece no texto, ele aparece, então o deslocamento vai ser 7.
+
+Se a falha ocorrer na posição 5, vou ver se o sufixo "CBA" aparece no texto, ele aparece, então o deslocamento vai ser 7.
 
 Sufixo "A" válido. Sufixo se repete 6 posições atrás.
 
@@ -278,9 +286,9 @@ O fato dos números da tabela de deslocamento ficarem "fora de ordem" é natural
 
 ---
 dragPos:
-  bm-exemplo-3: 761,177,64,96
-  bm-exemplo-1: 264,122,256,80
-  bm-exemplo-2: 266,34,256,80
+  bm-exemplo-2: 133,47,262,56
+  bm-exemplo-1: 94,1,280,75
+  bm-exemplo-3: 325,169,100,121
 ---
 
 ### Exemplo

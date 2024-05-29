@@ -1,6 +1,6 @@
 ---
 dragPos:
-  fb-1: 318,48,192,60
+  fb-1: 248,51,201,56
 ---
 
 ## Força bruta
@@ -127,9 +127,6 @@ function bruteForceSearch(text: string, pattern: string): [number[], number] {
 ````
 
 ---
-dragPos:
-  fb-4: -6,-61,0,0
-  fb-5: -6,-61,0,0
 ---
 
 ### Análise

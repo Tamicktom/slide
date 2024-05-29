@@ -2,7 +2,7 @@
 layout: statement
 ---
 
-# Automato
+## Automato
 
 ---
 ---
@@ -18,25 +18,15 @@ Automatos são muito usados em:
 
 - *Deterministic Finite Automata (DFA)*, Automato Finito Determinístico (AFD)
 - *Non-Deterministic Finite Automata (NFA)*, Automato Finito Não-Determinístico (AFND)
-- *Pushdown Automata (PDA), Automato com Pilha*
-- *Turing Machine (TM), Máquina de Turing*
 
----
----
+<!--
+DFA: Utilizado para reconhecer padrões e linguagens regulares, modelando transições de estados com base em caracteres de entrada.
 
-### Deterministic Finite Automata (DFA)
+Aplicação: Leitura e validação de cadeias em linguagens formais e expressões regulares.
 
----
----
+====================
 
-### Non-Deterministic Finite Automata (NFA)
+Descrição: Semelhante ao DFA, mas permite múltiplas transições para o mesmo estado e entrada.
 
----
----
-
-### Pushdown Automata (PDA)
-
----
----
-
-### Turing Machine (TM)
+Aplicação: Compiladores, processamento de linguagens.
+-->

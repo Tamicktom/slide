@@ -35,7 +35,7 @@ mdc: true
 <div class="w-full flex justify-center items-center">
 <div class="px-4 pt-2 rounded-lg bg-black/50 backdrop-blur-8 flex flex-col justify-center items-center text-white z-10 w-fit">
 <h1>Processamento de Cadeias</h1>
-<p>Casamento, Compressão e análise</p>
+<p>Casamento, Compressão e Análise</p>
 </div>
 </div>
 
