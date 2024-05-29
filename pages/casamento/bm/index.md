@@ -24,7 +24,7 @@ O algoritmo é mais eficiente que o KMP na prática.
 
 ---
 dragPos:
-  bm-1: 362,21,192,55
+  bm-1: 457,20,192,55
 ---
 
 <Cadeia cadeia="JACARE TIGRES TRISTE" />
@@ -43,7 +43,7 @@ Os dois calculos são completamente independentes. BM sempre escolhe o maior des
 
 ---
 dragPos:
-  bm-2: 425,122,192,60
+  bm-2: 424,118,192,60
 ---
 
 BM - Deslocamento por caráter ruim
@@ -80,7 +80,7 @@ Então, o BM pula o padrão até o caractere N, dentro do padrão. No caso, desl
 
 ---
 dragPos:
-  bm-algo-2: 458,124,192,57
+  bm-algo-2: 459,120,192,57
 ---
 
 BM - Deslocamento por caráter ruim
@@ -143,7 +143,7 @@ Quando um simbolo for buscado na tabela hash e não for encontrado, o BM pula o 
 
 ---
 dragPos:
-  bm-sufixo-bom: 323,339,288,55
+  bm-sufixo-bom: 295,122,288,55
 ---
 
 BM - Deslocamento por sufixo bom
@@ -168,7 +168,7 @@ O deslocamento efetivo é de 6 posições.
 
 ---
 dragPos:
-  bm-sufixo-bom-2: 199,263,288,53
+  bm-sufixo-bom-2: 395,125,288,53
 ---
 
 BM - Deslocamento por sufixo bom
@@ -191,7 +191,7 @@ A proxima comparação vai ser lá na posição 17.
 
 ---
 dragPos:
-  bm-sufixo-bom-3: 105,128,288,49
+  bm-sufixo-bom-3: 332,127,288,49
 ---
 
 BM - Deslocamento por sufixo bom
@@ -216,7 +216,7 @@ Então eu preciso deslocar o padrão de forma que o "BA" do começo do padrão c
 
 ---
 dragPos:
-  bm-sufixo-bom-3: 56,224,288,80
+  bm-sufixo-bom-3: 347,119,288,55
 ---
 
 BM - Deslocamento por sufixo bom
